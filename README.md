@@ -1,6 +1,6 @@
 # Demo · Cine Vinte × TaquillApp
 
-Demo de una sola página de **TaquillApp para Empresas** con la marca de **Grupo Vinte**: un beneficio corporativo con el que los colaboradores consiguen folios y códigos de cine (Cinépolis y Cinemex) con **hasta 60% de descuento**.
+Demo de una sola página de **TaquillApp para Empresas** con la marca de **Grupo Vinte**: un beneficio corporativo con el que los colaboradores consiguen folios y códigos de cine (Cinépolis y Cinemex) al **mejor precio para ir al cine, siempre**.
 
 ## Cómo abrirla (offline)
 
@@ -8,7 +8,7 @@ Abre **`demo-vinte-taquillapp.html`** con doble clic en cualquier navegador. Es 
 
 ## Qué incluye
 
-- Hero con el mensaje de "hasta 60% de descuento en cine"
+- Hero con el mensaje "El mejor precio para ir al cine, siempre"
 - Cómo funciona, en 4 pasos
 - Catálogo filtrable (Cinépolis / Cinemex · Boletos / Premium / Dulcería)
 - Compra simulada: carrito → datos del colaborador → pago → folios generados (copiar / imprimir o guardar como PDF)
