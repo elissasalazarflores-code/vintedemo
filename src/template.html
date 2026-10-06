@@ -151,7 +151,8 @@ h2{font-size:clamp(28px,3.6vw,40px);letter-spacing:-.02em;line-height:1.1;margin
 .rcard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px}
 .rcard.cp::before{background:var(--cinepolis)}
 .rcard.cx::before{background:var(--cinemex)}
-.rcard h3{margin:10px 0 12px;font-size:22px}
+.rcard h3{margin:10px 0 6px;font-size:22px}
+.rcard .mode{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:800;color:var(--ink);background:var(--amber-100);border-radius:8px;padding:4px 10px;margin-bottom:12px}
 .rcard ol{margin:0;padding-left:20px;color:var(--ink-2)}
 .rcard li{margin:6px 0}
 @media (max-width:800px){.redeem{grid-template-columns:1fr}}
@@ -341,7 +342,7 @@ footer p{margin:0;max-width:680px}
       <div class="step"><div class="n">1</div><h3>Entra al portal</h3><p>Accede con tu número de colaborador y correo corporativo de Vinte.</p></div>
       <div class="step"><div class="n">2</div><h3>Elige tus folios</h3><p>Selecciona cadena, formato y cantidad: 2D, 3D, 4DX, IMAX, VIP, Platino, dulcería y más.</p></div>
       <div class="step"><div class="n">3</div><h3>Paga con descuento</h3><p>Pagas el precio preferente Vinte y recibes tus códigos en tu correo al momento.</p></div>
-      <div class="step"><div class="n">4</div><h3>Canjea en el cine</h3><p>Presenta o captura tu código directamente en Cinépolis o Cinemex. ¡Listo, a disfrutar!</p></div>
+      <div class="step"><div class="n">4</div><h3>Canjea en el cine</h3><p>Cinépolis: en taquilla o en su app/web. Cinemex: solo directamente en taquilla. ¡Listo, a disfrutar!</p></div>
     </div>
   </div>
 </section>
@@ -382,21 +383,23 @@ footer p{margin:0;max-width:680px}
       <div class="rcard cp">
         <span class="chip cp">Cinépolis</span>
         <h3>Canje en Cinépolis</h3>
+        <span class="mode">Dos opciones: taquilla o app/web</span>
         <ol>
           <li>Elige película, horario y complejo.</li>
-          <li>En taquilla, indica que pagarás con código y muéstralo desde tu correo o celular.</li>
-          <li>O captúralo como método de pago al comprar en la app o web de Cinépolis, si el tipo de código lo permite.</li>
+          <li><b>En taquilla:</b> indica que pagarás con código y muéstralo desde tu correo o celular.</li>
+          <li><b>En línea:</b> captúralo como método de pago al comprar en la app o web de Cinépolis.</li>
           <li>Recibe tus boletos y disfruta la función.</li>
         </ol>
       </div>
       <div class="rcard cx">
         <span class="chip cx">Cinemex</span>
         <h3>Canje en Cinemex</h3>
+        <span class="mode">Solo directamente en taquilla</span>
         <ol>
-          <li>Elige película, horario y complejo.</li>
-          <li>En taquilla, presenta tu código desde tu correo o celular.</li>
-          <li>O ingrésalo al comprar en la app o web de Cinemex, si el tipo de código lo permite.</li>
+          <li>Acude al complejo Cinemex de tu preferencia.</li>
+          <li>En taquilla, elige película y horario, y presenta tu código desde tu correo o celular.</li>
           <li>Recibe tus boletos y disfruta la función.</li>
+          <li>Estos códigos <b>no se canjean</b> en la app ni en la web de Cinemex.</li>
         </ol>
       </div>
     </div>
@@ -451,7 +454,7 @@ footer p{margin:0;max-width:680px}
       <details open><summary>¿Quién puede usar este beneficio?</summary><p>Todos los colaboradores activos de Grupo Vinte, ingresando con su número de colaborador y correo corporativo.</p></details>
       <details><summary>¿Cuánto puedo ahorrar?</summary><p>Con Vinte tienes el mejor precio para ir al cine, siempre. Tu ahorro depende del formato, la cadena y la ciudad; en cada producto del catálogo ves cuánto ahorras contra el precio de taquilla.</p></details>
       <details><summary>¿Qué recibo al comprar?</summary><p>Un folio o código digital por cada boleto o producto, enviado a tu correo y visible en tu confirmación. TaquillApp entrega los códigos; el canje se hace directamente en Cinépolis o Cinemex.</p></details>
-      <details><summary>¿Dónde canjeo mis códigos?</summary><p>En la taquilla del cine de la cadena correspondiente o, cuando el tipo de código lo permite, en la app o web oficial de Cinépolis o Cinemex.</p></details>
+      <details><summary>¿Dónde canjeo mis códigos?</summary><p>Depende de la cadena. <b>Cinépolis:</b> en taquilla o en su app/web oficial. <b>Cinemex:</b> solo directamente en taquilla; estos códigos no se canjean en su app ni en su web.</p></details>
       <details><summary>¿Tienen vigencia?</summary><p>Sí. Cada código muestra su fecha de vigencia en tu correo de confirmación. Te recomendamos usarlo antes de esa fecha.</p></details>
       <details><summary>¿A quién contacto si tengo un problema?</summary><p>Al equipo de soporte de TaquillApp para Empresas, que atiende directamente a los colaboradores de Vinte.</p></details>
     </div>
@@ -500,6 +503,7 @@ footer p{margin:0;max-width:680px}
 <script>
 (function(){
   const CHAINS={cp:"Cinépolis",cx:"Cinemex"};
+  const REDEEM={cp:"Canje en taquilla o app/web",cx:"Canje solo en taquilla"};
   // Catálogo ilustrativo (precios de demo)
   const PRODUCTS=[
     {id:"cp-2d",  c:"cp",t:"boleto",  fmt:"2D",       name:"Boleto 2D Tradicional",  desc:"Válido para sala tradicional 2D, cualquier día y horario.",      was:125,now:59},
@@ -647,10 +651,10 @@ footer p{margin:0;max-width:680px}
         </div>
         <div class="codes">${issued.map((c,i)=>`
           <div class="code-card ${c.c}"><span class="bar"></span>
-            <div><div class="n">${c.name} · ${CHAINS[c.c]}</div><code>${c.code}</code><div class="n">Vigencia: ${c.exp}</div></div>
+            <div><div class="n">${c.name} · ${CHAINS[c.c]}</div><code>${c.code}</code><div class="n">Vigencia: ${c.exp} · ${REDEEM[c.c]}</div></div>
             <button class="copy" data-copy="${c.code}">Copiar</button></div>`).join("")}</div>
         <div class="warn" style="margin-top:6px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
-          <div>Canjea cada código directamente en la taquilla, app o web de <b>${[...new Set(issued.map(c=>CHAINS[c.c]))].join(" o ")}</b>. Códigos simulados para esta demostración.</div></div>`;
+          <div>${[...new Set(issued.map(c=>c.c))].map(k=>k==="cp"?"Códigos <b>Cinépolis</b>: canjéalos en taquilla o en la app/web de Cinépolis.":"Códigos <b>Cinemex</b>: canjéalos <b>solo directamente en taquilla</b>.").join("<br>")}<br>Códigos simulados para esta demostración.</div></div>`;
       F.innerHTML=`<button class="btn btn-line" id="print">Imprimir / guardar PDF</button><button class="btn btn-primary" id="finish">Terminar</button>`;
     }
     const n=$("#next"),b=$("#back"),fin=$("#finish"),pr=$("#print");
