@@ -22,4 +22,4 @@ Abre **`demo-vinte-taquillapp.html`** con doble clic en cualquier navegador. Es 
 python3 build.py   # src/template.html + assets/ -> demo-vinte-taquillapp.html
 ```
 
-Colores de marca: naranja Vinte `#E99900` y carbón `#262626`.
+Colores de marca: azul `#172843` (fondos y texto oscuro) y naranja `#D9912E` (logo y acentos).
